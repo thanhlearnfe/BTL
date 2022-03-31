@@ -24,6 +24,7 @@
                         <div class="dot" style="background-color:green"></div>
                     </div>
                     <i class="bi bi-sliders2-vertical button-remove-nav"></i>
+                    <i class="bi bi-sliders2-vertical none-remove-nav"></i>
                 </div>
                 <div class="logo">
                     <i class="bi bi-brightness-alt-high"></i>
@@ -84,10 +85,188 @@
                 </div>
             </div>
         </div>
-       
-           
+        <!-- Pages-->
+            <!--Page1-->
+            <div class="tab-content active">
+                <!--Nội dung phần thân-->
+                <div class="body-content">
+                    <div class="header__body-content">
+                        <div class="prev-next">
+                            <i class="bi bi-sliders2-vertical button-modal-nav"></i>
+                            <i class="fa-solid fa-chevron-left"></i>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="search">
+                            <i class="bi bi-search"></i>
+                            <input type="text" placeholder="Search for artist,song and...">
+                        </div>
+                        <i class="bi bi-sliders2-vertical button-modal-intro"></i>
+                    </div>
+                    <div class="banner__body-content">
+                        <div class="banner-heading">
+                            <p style="color: #939d99c7;font-size: 13px;">What's hot</p>
+                            <img src="./assets/img/fire.png" style="width: 3%;" alt="">
+                        </div>
+                        <div class="banner-trending">
+                            Trending
+                        </div>
+                        <div class="banner-img" >
+                            <p style="color: #939d99c7;font-size: 13px;">Artist</p>
+                            <h2>On Top </h2>
+                            <h2>Of The World</h2>
+                            <div class="banner-button">
+                                <span style="background-color: #000;color:#fff;">Play</span>
+                                <span>Follow</span>
+                            </div>
+                            <div class="banner-text-right">
+                            <p style="color: #f3e7e7;font-size: 13px;">Monthly Listener</p>
+                            <p style="color: #fff;font-size: 13px;font-weight: 600;">32.092</p>
+                            </div>
+                        </div>
+                    </div>
+    
+    
+                    <!-- Playlist -->
+                    <div class="song-title">
+                        <div class="idsong-title" >#
+                        </div>
+                        <p class="title">Title</p>
+                        <p class="singer">Artist</p>
+                        <span class="times">Time</span>
+                        <p class="albums">Album</p>
+                    </div>
+                <div class="scroll">
+    
+                    <div class="playlist">
+                    
+                    </div>
+                </div>
+                    <!-- Control -->
+                    <div class="player">
+                        <div class="control">   
+                            <div class="control-love">
+                                <i class="bi bi-heart"></i>
+                                <i class="bi bi-music-note-beamed"></i>
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </div>
+                            <div class="control-center">
+                                <div class="btn btn-repeat">
+                                <i class="fa-solid fa-repeat"></i>
+                                </div>
+                                <div class="btn btn-prev">
+                                <i class="fas fa-fast-backward"></i>
+                                </div>
+                                <div class="btn btn-toggle-play">
+                                <i class="fas fa-pause icon-pause"></i>
+                                <i class="fas fa-play icon-play"></i>
+                                </div>
+                                <div class="btn btn-next">
+                                <i class="fas fa-fast-forward"></i>
+                                </div>
+                                <div class="btn btn-random">
+                                <i class="fas fa-random"></i>
+                                </div>
+                            </div>
+                        <div class="volume">
+                            <i class="fas fa-volume-up"></i>
+                            <i class="fas fa-volume-mute"></i>
+                        </div>
+                        </div>
+                    
+                        <span class="span-left">2:20</span>
+                        <input id="progress" class="progress" type="range" value="0" min="0" max="100">
+                        <audio id="audio" src=""></audio>
+                        <span class="span-right">2:20</span>
+                    </div>
+                </div>
+    
+                <!-- Giới thiệu chung -->
+                <div class="introduce">
+                    <div class="shortcuts">
+                      
+                        <div class="shortcuts-heading">
+                            Shortcuts
+                            <i class="bi bi-sliders2-vertical remove-modal-intro"></i>
+                        </div>
+                        <div class="shortcuts-items">
+                            <div class="shortcuts-item">
+                                <img src="./assets/img/snow.png" alt="">
+                                <p>Chill Hits</p>
+                            </div>
+                            <div class="shortcuts-item">
+                                <img src="./assets/img/star.png" alt="">
+                                <p>Hop</p>
+                            </div>
+                            <div class="shortcuts-item">
+                                <img src="./assets/img/ghitar.png" alt="">
+                                <p>Accounstic</p>
+                            </div>
+                            <div class="shortcuts-item">
+                                <img src="./assets/img/musicnote.png" alt="">
+                                <p>Indie Pop</p>
+                            </div>
+                            <div class="shortcuts-item">
+                                <img src="./assets/img/piano.png" alt="">
+                                <p>Piano Blues</p>
+                            </div>
+                            <div class="shortcuts-item">
+                                <img src="./assets/img/jazz.png" alt="">
+                                <p>Jazz</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="farArtist">
+                        <div class="farArtist-heading">Far Artist</div>
+                        <div class="farArtist-items">
+                            <div class="farArtist-item">
+                                <div class="info-singers">
+                                    <img src="./assets/img/singer/taylor.jpg" alt="" class="img-singer">
+                                    <div class="info-singer">
+    
+                                        <p class="info-singer-name">Taylor Swift</p>
+                                        <p class="info-singer-view">196 songs in library</p>
+                                    </div>
+                                </div>
+                                <i class="bi bi-three-dots"></i>
+                            </div>
+                            <div class="farArtist-item">
+                                <div class="info-singers">
+                                    <img src="./assets/img/singer/kanye.jpg" alt="" class="img-singer">
+                                    <div class="info-singer">
+    
+                                        <p class="info-singer-name">Kanye West</p>
+                                        <p class="info-singer-view">124 songs in library</p>
+                                    </div>
+                                </div>
+                                <i class="bi bi-three-dots"></i>
+                            </div>
+                            <div class="farArtist-item">
+                                <div class="info-singers">
+                                    <img src="./assets/img/singer/drake.jpg" alt="" class="img-singer">
+                                    <div class="info-singer">
+    
+                                        <p class="info-singer-name">Drake</p>
+                                        <p class="info-singer-view">50 songs in library</p>
+                                    </div>
+                                </div>
+                                <i class="bi bi-three-dots"></i>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="img-hightlight">
+                        <img src="./assets/img/singer/torisetsu.png" alt="">
+                        <div class="torisetsu-name">
+                            <p class="text-fill">Torutetsu トリセツ</p>
+                            <p>Kana Nishino</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
     </div>
     <script src="./main.js"></script>
-    <script src="./tabs.js"></script>
 </body>
 </html>
