@@ -281,6 +281,14 @@ const app ={
         this.loadCurrentSong();
         console.log(this.curentindex)
     },
+    scrollActive : function(){
+        setTimeout(function(){
+            $('.song.active').scrollIntoView({
+                behavior: 'smooth',
+                block:'center',
+            })
+        },200)
+    },
     // Định nghĩa thuộc tính 
     defineProperties: function(){
         Object.defineProperty(this, 'curentSong',{
