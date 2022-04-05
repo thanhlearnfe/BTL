@@ -1,6 +1,18 @@
+import{Routes,Route,Link} from 'react-router-dom'
+
 import './App.css';
 import Home from './Pages/Home/Home'
+import Story from './Pages/Story/Story'
 function App() {
+const tabs = document.querySelectorAll.bind(document)(".tab-item");
+tabs.forEach(function(tab,index){
+    tab.onclick =function(){
+      document.querySelector.bind(document)(".tab-item.active").classList.remove('active');
+
+       this.classList.add('active');
+
+    }
+})
   return (
     <div id="main">
    {/* Thanh điều hướng */}
@@ -19,18 +31,18 @@ function App() {
                 <span>Bee</span>
                 <span>Music</span>
             </div>
-            <div className="nav-items">
+            <div className="nav-items" >
                 <div className="nav-item tab-item active">
                 <i className ="bi bi-house-door-fill"></i>
-                    <p>Home</p>
+                    <Link to="/">Home</Link>
                 </div>
                 <div className="nav-item tab-item">
                 <i className="bi bi-stack"></i>
-                    <p>Trends</p>
+                <Link to ="/story">Story</Link>
                 </div>
                 <div className="nav-item tab-item">
                 <i className="bi bi-chat-left-dots-fill"></i>
-                    <p>Feed</p>
+                <Link to="/">Admin</Link>
                 </div>
                
             </div>
@@ -73,7 +85,10 @@ function App() {
             </div>
         </div>
     </div>
-    <Home />
+   <Routes>
+     <Route path="/" element={<Home/>} />
+     <Route path="/story" element={<Story/>} />
+    </Routes>
     </div>
   );
 }
