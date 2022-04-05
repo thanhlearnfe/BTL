@@ -1,0 +1,146 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,300&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  color: #676669;
+  font-family:'Poppins';
+}
+div,h1,h2,h3,h4,h5,span{
+  font-family: 'Poppins';
+}
+p{
+  font-size:10px;
+  font-family:'Poppins';
+}
+:root{
+  --text-color:#676669;
+  --primary-color: #000;
+}
+#main{
+  max-height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+.navbar{
+  width: 20%;
+}
+.tab-content{
+    
+  display:none;
+}
+.tab-content.page2{
+  flex-direction: column;
+  overflow:scroll;
+  overflow-x: hidden; 
+  padding: 35px 60px;
+  background-color:rgb(231, 232, 243);
+}
+.tab-content.active{
+  display: flex;
+  width: 80%;
+}
+.body-content{
+  width:70%;
+  padding: 10px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #e7e8f3;
+}
+.introduce{
+  width: 30%;
+  padding: 0 15px;
+  background-color: #e7e8f3;
+}
+
+.dot:nth-child(1){
+  background-color: red;
+}
+.dot:nth-child(2){
+  background-color: yellow;
+}
+.dot:nth-child(3){
+  background-color: green;
+}
+.logo:nth-child(2){
+  color: #ffc876;
+}
+.text-discover{
+  color: #939d99c7;
+  font-size: 13px;
+}
+.footer-navbar p{
+  font-size: 12px;
+  font-weight: 500;
+}
+.footer-navbar i{
+  font-size:12px;
+  margin-left: 15px;
+}
+.navbar-container {
+  padding: 10px 15px;
+}
+.navbar-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.dots {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+  /* padding-left: 10px; */
+}
+.logo .bi{
+  color:#ffc876;
+  font-size: 45px;
+  margin-right: 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo span{
+  font-weight: 500;
+}
+.nav-items{
+  margin-bottom: 15px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  cursor: pointer;
+}
+.nav-item p{
+  font-size: 12px;
+}
+.nav-item.active{
+  background: #000;
+  color: #fff;
+  border-radius: 5px;
+}
+.nav-item i{
+  padding: 7px 5px;
+  padding-right: 15px;
+}
+.avatar{
+  width: 30%;
+  border-radius: 50%;
+}
+.footer-navbar {
+  display: flex;
+  align-items: center;
+}
