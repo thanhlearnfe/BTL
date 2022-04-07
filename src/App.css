@@ -16,6 +16,9 @@ p{
   font-size:10px;
   font-family:'Poppins';
 }
+a{
+  text-decoration:none;
+}
 :root{
   --text-color:#676669;
   --primary-color: #000;
@@ -78,6 +81,10 @@ p{
 .footer-navbar p{
   font-size: 12px;
   font-weight: 500;
+  padding: 5px 10px;
+    border: 1px solid;
+    border-radius: 6px;
+    background: #fff;
 }
 .footer-navbar i{
   font-size:12px;
@@ -85,6 +92,7 @@ p{
 }
 .navbar-container {
   padding: 10px 15px;
+  position: relative;
 }
 .navbar-header {
   display: flex;
@@ -123,6 +131,10 @@ p{
   align-items: center;
   width: 90%;
   cursor: pointer;
+  color: #676669;
+}
+.nav-item p{
+  font-size:12px;
 }
 .nav-item a{
   font-size: 12px;
@@ -143,6 +155,190 @@ p{
   border-radius: 50%;
 }
 .footer-navbar {
-  display: flex;
+  display: none;
   align-items: center;
+  cursor: pointer;
+}
+.footer-navbar.active{
+  display:flex;
+}
+.login{
+  display:none;
+}
+.login.active{
+  display: block;
+}
+.btn-login {
+  padding: 7px 25px;
+  color: #333;
+  border: 1px solid #333;
+  background: #fff;
+  border-radius: 20px;
+  transition: all ease-in-out 0.3s;
+  font-size: 12px;
+}
+
+.btn-login:hover {
+  border-color: #fff;
+  background: #666;
+  color: #fff;
+}
+
+
+/* Form Login */
+#login-form {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000000b0;
+  animation:  modelFadein ease 0.55s; /*ease chỉnh tốc độ */
+}
+@keyframes modelFadein{
+  from{
+      transform: translateY(-65px);
+  }
+
+  to{
+      transform: translateY(0);
+  }
+}
+.form-box
+{
+    width:380px;
+	height:480px;
+	position:relative;
+	margin:2% auto;
+	background:rgba(0,0,0,0.3);
+	padding:10px;
+    overflow: hidden;
+}
+.button-box
+{
+	width:110px;
+	margin:35px auto;
+	position:relative;
+	box-shadow: 0 0 20px 9px #ff61241f;
+	border-radius: 30px;
+}
+.toggle-btn
+{
+	padding:10px 30px;
+	cursor:pointer;
+	background:transparent;
+	border:0;
+	outline: none;
+	position: relative;
+}
+#btn
+{
+	top: 0;
+	left:0;
+	position: absolute;
+	width: 110px;
+	height: 100%;
+	background: #F3C693;
+	border-radius: 30px;
+	transition: .5s;
+}
+.input-group-login
+{
+	top: 150px;
+	position:absolute;
+	width:280px;
+	transition:.5s;
+}
+.input-group-register
+{
+    top: 120px;
+	position:absolute;
+	width:280px;
+	transition:.5s;
+}
+.input-field
+{
+	width: 100%;
+	padding:10px 0;
+	margin:5px 0;
+	border-left:0;
+	border-top:0;
+	border-right:0;
+	border-bottom: 1px solid #999;
+	outline:none;
+	background: transparent;
+}
+.submit-btn
+{
+	width: 85%;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	background: #F3C693;
+	border: 0;
+	outline: none;
+	border-radius: 30px;
+}
+.submit-btn:hover{
+  background:aqua;
+}
+.check-box
+{
+	margin: 30px 10px 34px 0;
+}
+
+#login
+{
+	left:50px;
+}
+#login input
+{
+	color:white;
+	font-size:15;
+}
+.close-modal {
+  float: right;
+  padding: 5px 10px;
+  border-radius: 3px;
+  background: #ff0000d6;
+  color: #fff;
+  cursor: pointer;
+}
+.close-modal:hover{
+  background: #000;
+}
+.account-info {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0px;
+  right: 60px;
+  z-index: 2;
+  animation:  modelFadein2 ease 0.35s; /*ease chỉnh tốc độ */
+}
+@keyframes modelFadein2{
+  from{
+    right: 0px;
+
+  }
+
+  to{
+    right: 60px;
+
+
+  }
+}
+.account-info.active{
+  display: flex;
+}
+.account-info span {
+  padding: 5px 10px;
+  border: 1px solid;
+  border-radius: 6px;
+  background:#fff;
+}
+.account-info span:hover{
+  background: #000;
+  color: #fff;
+  cursor: pointer;
 }

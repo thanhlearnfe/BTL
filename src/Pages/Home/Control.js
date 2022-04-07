@@ -4,6 +4,9 @@ function Control(props){
     const songcurrent = props.songs[props.currentSongindex]
     const setcurrentSongindex = props.setcurrentSongindex
     const [isPlaying,setisPlaying] = useState(false);
+    const [isRepeating,setisRepeating] = useState(false);
+    const [isRandoming,setisRandoming] = useState(false);
+
     const audioEl = useRef(null)
     // Xử lí Play/Pause
     const TogglePlay = ()=>{
@@ -18,11 +21,17 @@ function Control(props){
     }
     // Next bài hát
     const NextSong = ()=>{
-        if(props.currentSongindex >= props.songs.length-1){
-            setcurrentSongindex(0)
+        if(isRandoming === false){
+
+            if(props.currentSongindex >= props.songs.length-1){
+                setcurrentSongindex(0)
+            }
+            else{
+                setcurrentSongindex(props.currentSongindex+1)
+            }
         }
         else{
-            setcurrentSongindex(props.currentSongindex+1)
+            random()
         }
         setisPlaying(false)
     }
@@ -38,7 +47,23 @@ function Control(props){
     }
     //Repeat Bai Hat
     const RepeatSong = ()=>{
-        audioEl.current.play()
+        if(isRepeating === false){
+
+            setisRepeating(true)
+        }
+        else{
+            setisRepeating(false)
+        }
+
+    }
+    // Khi bài hát kết thúc
+    const EndSong = ()=>{
+        if(isRepeating === false){
+            NextSong()
+        }
+        else{
+            audioEl.current.play()
+        }
     }
     const Songactive = ()=>{
         setTimeout(()=>{
@@ -54,6 +79,10 @@ function Control(props){
         const timesecond =(Math.floor(audioEl.current.duration)%60);
         document.querySelector('.span-left').innerHTML = '0:00'
         document.querySelector('.span-right').innerHTML = Math.floor(audioEl.current.duration.toFixed()/60)+':'+ (timesecond>9 ? timesecond :'0' + timesecond);
+        const progress = document.querySelector('.progress')
+        var color = 'linear-gradient(90deg, rgb(0,0,0)' +0 + '% , rgb(214, 214, 214)' + 0+ '%)';
+        progress.style.background =color;
+        progress.value = 0;
     }
     //Khi tiến độ bài hát thay đổi
     const TimeUpdate = ()=>{
@@ -75,6 +104,23 @@ function Control(props){
         var color = 'linear-gradient(90deg, rgb(0,0,0)' + e.target.value + '% , rgb(214, 214, 214)' + e.target.value+ '%)';
         document.querySelector('.progress').style.background = color;
     }
+    const ClRandomSong = ()=>{
+        if(isRandoming === false){
+            setisRandoming(true);
+        }
+        else{
+            setisRandoming(false);
+        }
+       
+    }
+    const random = ()=>{
+        let newindex;
+        do{
+            newindex = Math.floor(Math.random() * props.songs.length-1);
+        } while  (newindex === props.currentSongindex)
+        setcurrentSongindex(newindex)
+        
+    }
     return(
         <div className="player" >
         <div className="control">   
@@ -84,7 +130,7 @@ function Control(props){
                 <i className="bi bi-arrows-angle-expand"></i>
             </div>
             <div className="control-center">
-                <div className="btn btn-repeat" onClick={RepeatSong}>
+                <div className={`btn btn-repeat ${isRepeating ? 'active' : ''}`}  onClick={RepeatSong}>
                    <i className="bi bi-arrow-repeat"></i>
                 </div>
                 <div className="btn btn-prev" onClick={PrevSong}>
@@ -96,7 +142,7 @@ function Control(props){
                 <div className="btn btn-next" onClick={NextSong}>
                 <i className="bi bi-caret-right-fill"></i>
                 </div>
-                <div className="btn btn-random">
+                <div className={`btn btn-random ${isRandoming ? 'active' : ''}`} onClick={ClRandomSong}>
                 <i className="bi bi-arrow-left-right"></i>
                 </div>
             </div>
@@ -113,6 +159,7 @@ function Control(props){
         <audio 
             ref={audioEl}
             onLoadedMetadata={LoadMeta}
+            onEnded={EndSong}
             onTimeUpdate={TimeUpdate}
             id="audio" src={songcurrent.path} ></audio>
         <span className="span-right"></span>
