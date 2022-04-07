@@ -1,2 +1,2 @@
 # BTL
-https://thanhlearnfe.github.io/BTL/
+https://thanhlearnfe.github.io/BTL/#/BTL
