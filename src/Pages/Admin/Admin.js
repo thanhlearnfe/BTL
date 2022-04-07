@@ -2,7 +2,7 @@ import { useState } from "react";
 import './admin.css'
 function Admin(){
     const storeUser = JSON.parse(localStorage.getItem('user'));
-    const [users,setUsers] = useState(storeUser);
+    const [users,setUsers] = useState(storeUser ?? []);
     const [user,setUser] = useState('');
     const [password,setPassword] = useState('');
     
