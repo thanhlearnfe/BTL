@@ -1,5 +1,5 @@
 
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useState} from 'react'
 import './home.css';
 import Control from "./Control";
 import Loader from './loader'
