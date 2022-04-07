@@ -15,7 +15,7 @@ function App() {
 
   const storeUser = JSON.parse(localStorage.getItem('user'));
   const userlocal = localStorage.getItem('account')
-  const useractive = localStorage.getItem('useractive')
+  const useractive = localStorage.getItem('useractive') ?? 'false'
 
 const OpenModal = ()=>{
   FormModal.current.style.display = "block"
