@@ -1,18 +1,59 @@
 import{Routes,Route,Link} from 'react-router-dom'
-
+import React, {useState,useRef} from 'react'
 import './App.css';
 import Home from './Pages/Home/Home'
 import Story from './Pages/Story/Story'
+import Admin from './Pages/Admin/Admin'
 function App() {
-const tabs = document.querySelectorAll.bind(document)(".tab-item");
-tabs.forEach(function(tab,index){
-    tab.onclick =function(){
-      document.querySelector.bind(document)(".tab-item.active").classList.remove('active');
+  const [accInfo,setaccInfo] = useState(false);
+  var checkUser = false;
+  const [indexTab,setIndexTab] = useState(1);
 
-       this.classList.add('active');
+  const FormModal = useRef(null)
+  const userNameValue = useRef(null)
+  const passwordValue = useRef(null)
 
+  const storeUser = JSON.parse(localStorage.getItem('user'));
+  const userlocal = localStorage.getItem('account')
+  const useractive = localStorage.getItem('useractive')
+
+const OpenModal = ()=>{
+  FormModal.current.style.display = "block"
+}
+const CloseModal = ()=>{
+  FormModal.current.style.display = "none"
+}
+// Xử lí tab active
+const toggleTab = (index)=>{
+  setIndexTab(index)
+}
+
+const Login = (e)=>{
+  for(var i=0; i < storeUser.length; i++){
+    if(userNameValue.current.value === storeUser[i].user && passwordValue.current.value === storeUser[i].password){
+      CloseModal()
+      checkUser = true;
+      localStorage.setItem('account',storeUser[i].user)
+      localStorage.setItem('useractive',checkUser)
+      window.location.reload()
     }
-})
+    
+  }
+  e.preventDefault()
+}
+const ToggleAcc =()=>{
+  if(accInfo === false){
+    setaccInfo(true)
+  }
+  else{
+    setaccInfo(false)
+  }
+}
+const Logout =()=>{
+  setaccInfo(false)
+  checkUser = false;
+  localStorage.setItem('useractive',checkUser)
+}
   return (
     <div id="main">
    {/* Thanh điều hướng */}
@@ -32,18 +73,29 @@ tabs.forEach(function(tab,index){
                 <span>Music</span>
             </div>
             <div className="nav-items" >
-                <div className="nav-item tab-item active">
-                <i className ="bi bi-house-door-fill"></i>
-                    <Link to="/">Home</Link>
-                </div>
-                <div className="nav-item tab-item">
-                <i className="bi bi-stack"></i>
-                <Link to ="/story">Story</Link>
-                </div>
-                <div className="nav-item tab-item">
-                <i className="bi bi-chat-left-dots-fill"></i>
-                <Link to="/">Admin</Link>
-                </div>
+                {/* Trang chủ */}
+                    <Link to="/">
+                       <div className={`nav-item tab-item ${indexTab===1 ? 'active' : ''} `}  onClick={()=>{toggleTab(1)}}>
+                          <i className ="bi bi-house-door-fill"></i>
+                          <p>Home</p>
+                      </div>
+                    </Link>
+                {/* Trang story */}
+
+                  <Link to ="/story">
+                  <div className={`nav-item tab-item ${indexTab===2 ? 'active' : ''} `}  onClick={()=>{toggleTab(2)}}>
+                      <i className="bi bi-stack"></i>
+                      <p>Story</p>
+                  </div>
+                  </Link>
+                {/* Trang quản trị */}
+
+                <Link to="/admin">
+                <div className={`nav-item tab-item ${indexTab===3 ? 'active' : ''} `}  onClick={()=>{toggleTab(3)}}>
+                  <i className="bi bi-chat-left-dots-fill"></i>
+                  <p>Admin</p>
+                  </div>
+                  </Link>
                
             </div>
             <p className="text-discover" >Discover</p>
@@ -78,18 +130,45 @@ tabs.forEach(function(tab,index){
                 </div>
                
             </div>  
-            <div className="footer-navbar">
-                <img src="https://thanhlearnfe.github.io/sever/assets/img/avatar.jpg" className="avatar" alt=""/>
-                <p >Phan Xuân Thành</p>
+            <div className={`footer-navbar ${useractive==='true' ? 'active' : ''} `} onClick={ToggleAcc}>
+                <p >{userlocal}</p>
                 <i className="fa-solid fa-chevron-right" ></i>
+            </div>
+            <div className={`login ${useractive==='false' ? 'active' : ''} `}>
+              <span  className="btn-login" onClick={OpenModal}>LOGIN</span>
+            </div>
+            <div className={`account-info ${accInfo === true ? 'active' : ''}`}>
+                <span>Thông Tin</span>
+                <span  onClick={Logout}>Đăng xuất</span>
             </div>
         </div>
     </div>
    <Routes>
      <Route path="/" element={<Home/>} />
      <Route path="/story" element={<Story/>} />
+     <Route path="/admin" element={<Admin/>} />
+
     </Routes>
+    {/* Form Login */}
+    <div id='login-form'className='login-page' ref={FormModal}>
+            <div className="form-box">
+              <div className="close-modal" onClick={CloseModal}>X</div>
+                <div className='button-box'>
+                    <div id='btn'></div>
+                    <button type='button'className='toggle-btn'>Log In</button>
+                </div>
+                <form id='login' className='input-group-login'>
+                    <input type='text'className='input-field'placeholder='Email Id' ref={userNameValue} />
+                    <input type='password'className='input-field'placeholder='Enter Password' ref={passwordValue} />
+                    <input type='checkbox'className='check-box'/><span>Remember Password</span>
+                    <button className='submit-btn' onClick={Login}>Log in</button>
+	            	 </form>
+		 
+            </div>
+        </div>
+
     </div>
+
   );
 }
 

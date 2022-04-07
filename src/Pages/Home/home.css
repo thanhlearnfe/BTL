@@ -202,16 +202,16 @@ p{
   }
   .control .fa-volume-mute{
     display: none;
-    color: var(--primary-color);
+    color: #f00;
   
   }
   .control.mute .fa-volume-mute {
     display: inline-block;
-    color: var(--primary-color);
+    color: #f00;
   
   }
   .fa-volume-up{
-    color: var(--primary-color);
+    color: #f00;
   
   }
   .control.mute .fa-volume-up {
@@ -235,14 +235,14 @@ p{
     color: #000
   }
   .control .btn.active {
-    color: var(--primary-color);
+    color: #f00;
   }
   
   .btn-prev:hover{
-    color: var(--primary-color);
+    color: #f00;
   }
   .btn-next:hover{
-    color: var(--primary-color);
+    color: #f00;
   
   }
   .control .btn-toggle-play {
