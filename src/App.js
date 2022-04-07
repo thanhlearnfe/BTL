@@ -74,7 +74,7 @@ const Logout =()=>{
             </div>
             <div className="nav-items" >
                 {/* Trang chủ */}
-                    <Link to="/Home">
+                    <Link to="/BTL">
                        <div className={`nav-item tab-item ${indexTab===1 ? 'active' : ''} `}  onClick={()=>{toggleTab(1)}}>
                           <i className ="bi bi-house-door-fill"></i>
                           <p>Home</p>
@@ -82,7 +82,7 @@ const Logout =()=>{
                     </Link>
                 {/* Trang story */}
 
-                  <Link to ="/story">
+                  <Link to ="/BTL/story">
                   <div className={`nav-item tab-item ${indexTab===2 ? 'active' : ''} `}  onClick={()=>{toggleTab(2)}}>
                       <i className="bi bi-stack"></i>
                       <p>Story</p>
@@ -90,7 +90,7 @@ const Logout =()=>{
                   </Link>
                 {/* Trang quản trị */}
 
-                <Link to="/admin">
+                <Link to="/BTL/admin">
                 <div className={`nav-item tab-item ${indexTab===3 ? 'active' : ''} `}  onClick={()=>{toggleTab(3)}}>
                   <i className="bi bi-chat-left-dots-fill"></i>
                   <p>Admin</p>
@@ -144,9 +144,9 @@ const Logout =()=>{
         </div>
     </div>
    <Routes>
-     <Route path="/Home" element={<Home/>} />
-     <Route path="/story" element={<Story/>} />
-     <Route path="/admin" element={<Admin/>} />
+     <Route path="/BTL" element={<Home/>} />
+     <Route path="/BTL/story" element={<Story/>} />
+     <Route path="/BTL/admin" element={<Admin/>} />
 
     </Routes>
     {/* Form Login */}
