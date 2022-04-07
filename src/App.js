@@ -74,7 +74,7 @@ const Logout =()=>{
             </div>
             <div className="nav-items" >
                 {/* Trang chủ */}
-                    <Link to="/">
+                    <Link to="/Home">
                        <div className={`nav-item tab-item ${indexTab===1 ? 'active' : ''} `}  onClick={()=>{toggleTab(1)}}>
                           <i className ="bi bi-house-door-fill"></i>
                           <p>Home</p>
@@ -144,7 +144,7 @@ const Logout =()=>{
         </div>
     </div>
    <Routes>
-     <Route path="/" element={<Home/>} />
+     <Route path="/Home" element={<Home/>} />
      <Route path="/story" element={<Story/>} />
      <Route path="/admin" element={<Admin/>} />
 
