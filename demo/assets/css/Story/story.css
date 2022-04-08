@@ -170,5 +170,13 @@ ul.navbar_menu{
 }
 .action-comment{
     margin-left: 10px;
-
 }
+@media(max-width:420px){
+ 
+  .col{
+    flex-direction: column;
+  }
+  .row{
+    width: 100% !important;
+    padding: 10px 10px !important;
+  }}
