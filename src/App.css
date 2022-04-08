@@ -342,3 +342,9 @@ a{
   color: #fff;
   cursor: pointer;
 }
+.admin-tab{
+  display:none;
+}
+.admin-tab.active2{
+  display: flex;
+}
