@@ -4,6 +4,7 @@ import './App.css';
 import Home from './Pages/Home/Home'
 import Story from './Pages/Story/Story'
 import Admin from './Pages/Admin/Admin'
+import Comment from './Pages/Comment/Comment'
 function App() {
   const [accInfo,setaccInfo] = useState(false);
   var checkUser = false;
@@ -82,10 +83,10 @@ const Logout =()=>{
                     </Link>
                 {/* Trang story */}
 
-                  <Link to ="/story">
+                  <Link to ="/comment">
                   <div className={`nav-item tab-item ${indexTab===2 ? 'active' : ''} `}  onClick={()=>{toggleTab(2)}}>
                       <i className="bi bi-stack"></i>
-                      <p>Story</p>
+                      <p>Comment</p>
                   </div>
                   </Link>
                 {/* Trang quản trị */}
@@ -96,6 +97,13 @@ const Logout =()=>{
                   <p>Admin</p>
                   </div>
                   </Link>
+                  <Link to="/story">
+                <div className={`nav-item tab-item ${indexTab===4 ? 'active' : ''} `}  onClick={()=>{toggleTab(4)}}>
+                  <i className="bi bi-chat-left-dots-fill"></i>
+                  <p>Story</p>
+                  </div>
+                  </Link>
+                  
                
             </div>
             <p className="text-discover" >Discover</p>
@@ -124,10 +132,10 @@ const Logout =()=>{
                 <i className="bi bi-people"></i>
                     <p>Artist</p>
                 </div>
-                <div className="nav-item">
+                {/* <div className="nav-item">
                 <i className="bi bi-stars"></i>
                     <p>Albums</p>
-                </div>
+                </div> */}
                
             </div>  
             <div className={`footer-navbar ${useractive==='true' ? 'active' : ''} `} onClick={ToggleAcc}>
@@ -145,8 +153,10 @@ const Logout =()=>{
     </div>
    <Routes>
      <Route path="/" element={<Home/>} />
-     <Route path="/story" element={<Story/>} />
+     <Route path="/comment" element={<Comment userlocal={userlocal}/>} />
      <Route path="/admin" element={<Admin/>} />
+     <Route path="/story" element={<Story/>} />
+
 
     </Routes>
     {/* Form Login */}
