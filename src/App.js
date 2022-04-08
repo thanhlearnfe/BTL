@@ -34,7 +34,7 @@ const Login = (e)=>{
     if(userNameValue.current.value === storeUser[i].user && passwordValue.current.value === storeUser[i].password){
       CloseModal()
       checkUser = true;
-      localStorage.setItem('account',storeUser[i].user)
+      localStorage.setItem('account',storeUser[i].username)
       localStorage.setItem('useractive',checkUser)
       window.location.reload()
     }

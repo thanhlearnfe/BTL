@@ -5,7 +5,6 @@ function Comment(props) {
     const localComments = JSON.parse(localStorage.getItem('comments'));
     const [list,setList] = useState('')
     const [comments,setComments] = useState(localComments ?? [])
-    const date = new Date();
     function handleChange(e) {
         setList(e.target.value)
     }
@@ -13,14 +12,10 @@ function Comment(props) {
         let userComments ={}
         userComments["commentContent"] = list;
         userComments["usercomment"] = props.userlocal;
-        userComments["timehour"] = date.getHours();
-        userComments["timemin"] = date.getMinutes();
-
         setComments((prev)=>{
                     return [userComments,...prev]
                 })
         setList('')
-        console.log(date.getHours())
     }
             
           
@@ -64,7 +59,7 @@ function Comment(props) {
                 <div className="comment-like">
                     <p>Thích</p>
                     <p>Trả lời </p>
-                    <p>{localComment.timehour}h{localComment.timemin}p</p>
+                   
 
                 </div>
                 </div>
