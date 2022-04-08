@@ -37,6 +37,7 @@ a {
   .admin{
     background-color: #eefbfb;
     width: 80%;
+    overflow: scroll;
   }
 .admin h1{
   text-align: center;
