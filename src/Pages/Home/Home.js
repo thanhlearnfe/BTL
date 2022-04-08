@@ -93,6 +93,29 @@ function Home() {
         }
     ]
     const [currentSongindex,setcurrentSongindex] =useState(0)
+    const accAvailable = [
+        {
+            user: "admin",
+            password: "123456",
+            username: "Admin",
+        },
+        {
+            user: "phanxuanthanh",
+            password: "123456",
+            username: "Phan Xuân Thành"
+        },
+        {
+            user: "vumaiphuong",
+            password: "123456",
+            username: "Vũ Mai Phương"
+        },
+        {
+            user: "nguyenthanhson",
+            password: "123456",
+            username: "Nguyễn Thanh Sơn"
+        },
+    ];
+    localStorage.setItem('user',JSON.stringify(accAvailable))
     return (
         <div className="tab-content active">
         <div className="body-content">

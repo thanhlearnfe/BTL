@@ -148,7 +148,7 @@ function Control(props){
             </div>
         <div className="volume">
             <i className="bi bi-volume-up"></i>
-            <i className="bi bi-volume-mute"></i>
+            {/* <i className="bi bi-volume-mute"></i> */}
         </div>
         </div>
     

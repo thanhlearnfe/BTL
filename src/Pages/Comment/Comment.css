@@ -17,6 +17,7 @@
     width: 100%;
     overflow:scroll;
     position: relative;
+    background: #e7e8f3;
 }
 .comment-input {
     width: 40%;
@@ -28,6 +29,7 @@
     padding-bottom: 5px;
     font-family: ui-sans-serif;
     font-size: 14px;
+    background: #e7e8f3;
 }
 .user-comment {
     padding: 9px;

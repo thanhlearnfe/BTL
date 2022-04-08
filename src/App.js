@@ -1,6 +1,7 @@
 import{Routes,Route,Link} from 'react-router-dom'
 import React, {useState,useRef} from 'react'
 import './App.css';
+import './responsive.css';
 import Home from './Pages/Home/Home'
 import Story from './Pages/Story/Story'
 import Admin from './Pages/Admin/Admin'
@@ -9,10 +10,13 @@ function App() {
   const [accInfo,setaccInfo] = useState(false);
   var checkUser = false;
   const [indexTab,setIndexTab] = useState(1);
+  
 
   const FormModal = useRef(null)
   const userNameValue = useRef(null)
   const passwordValue = useRef(null)
+  const navbar = useRef(null)
+  const buttonOpennavbar = useRef(null)
 
   const storeUser = JSON.parse(localStorage.getItem('user'));
   const userlocal = localStorage.getItem('account')
@@ -55,10 +59,19 @@ const Logout =()=>{
   checkUser = false;
   localStorage.setItem('useractive',checkUser)
 }
+const OpenNav =(e)=>{
+  navbar.current.style.display ='flex';
+  buttonOpennavbar.current.style.display ='none';
+}
+const CloseNav =()=>{
+  navbar.current.style.display ='none';
+  buttonOpennavbar.current.style.display ='block';
+
+}
   return (
     <div id="main">
    {/* Thanh điều hướng */}
-    <div className="navbar">
+    <div className="navbar" ref={navbar}>
         <div className="navbar-container">
             <div className="navbar-header">
                 <div className="dots">
@@ -66,7 +79,8 @@ const Logout =()=>{
                     <div className="dot"></div>
                     <div className="dot"></div>
                 </div>
-                <i className="bi bi-sliders2-vertical "></i>
+                <i className="bi bi-sliders2-vertical one"></i>
+                <i className="bi bi-sliders2-vertical two" onClick={CloseNav}></i>
             </div>
             <div className="logo">
                 <i className="bi bi-brightness-alt-high"></i>
@@ -92,7 +106,7 @@ const Logout =()=>{
                 {/* Trang quản trị */}
 
                 <Link to="/admin">
-                <div className={`nav-item tab-item ${indexTab===3 ? 'active' : ''} `}  onClick={()=>{toggleTab(3)}}>
+                <div className={`nav-item admin-tab tab-item ${indexTab===3 ? 'active' : ''} ${userlocal==='Admin' ? 'active2' : ''} `}  onClick={()=>{toggleTab(3)}}>
                   <i className="bi bi-chat-left-dots-fill"></i>
                   <p>Admin</p>
                   </div>
@@ -151,6 +165,10 @@ const Logout =()=>{
             </div>
         </div>
     </div>
+    <div className="navbar-responsive" onClick={OpenNav} ref={buttonOpennavbar}>
+     <i className="bi bi-sliders2-vertical "></i>
+    </div>
+
    <Routes>
      <Route path="/" element={<Home/>} />
      <Route path="/comment" element={<Comment userlocal={userlocal}/>} />

@@ -35,9 +35,10 @@ a {
   color: #4c4c4c;
 }
   .admin{
-    background-color: #eefbfb;
+    background-color: #e7e8f3;
     width: 80%;
     overflow: scroll;
+    padding: 10px 30px;
   }
 .admin h1{
   text-align: center;
