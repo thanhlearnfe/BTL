@@ -40,7 +40,12 @@ const Login = (e)=>{
       checkUser = true;
       localStorage.setItem('account',storeUser[i].username)
       localStorage.setItem('useractive',checkUser)
-      window.location.reload()
+      window.location.reload();
+      break;
+    }
+    else{
+      alert("Tài khoản hoặc mật khẩu không chính xác !");
+      break;
     }
     
   }
@@ -95,26 +100,29 @@ const CloseNav =()=>{
                           <p>Home</p>
                       </div>
                     </Link>
-                {/* Trang story */}
+                {/* Trang Comment */}
 
                   <Link to ="/comment">
                   <div className={`nav-item tab-item ${indexTab===2 ? 'active' : ''} `}  onClick={()=>{toggleTab(2)}}>
-                      <i className="bi bi-stack"></i>
+                      <i className="bi bi-chat-left-dots-fill"></i>
                       <p>Comment</p>
                   </div>
                   </Link>
-                {/* Trang quản trị */}
-
-                <Link to="/admin">
-                <div className={`nav-item admin-tab tab-item ${indexTab===3 ? 'active' : ''} ${userlocal==='Admin' ? 'active2' : ''} `}  onClick={()=>{toggleTab(3)}}>
-                  <i className="bi bi-chat-left-dots-fill"></i>
-                  <p>Admin</p>
-                  </div>
-                  </Link>
+               
+                  {/* Trang story */}
                   <Link to="/story">
                 <div className={`nav-item tab-item ${indexTab===4 ? 'active' : ''} `}  onClick={()=>{toggleTab(4)}}>
-                  <i className="bi bi-chat-left-dots-fill"></i>
+                <i className="bi bi-stack"></i>
                   <p>Story</p>
+                  </div>
+                  </Link>
+
+                   {/* Trang quản trị */}
+
+                <Link to="/admin">
+                <div className={`nav-item admin-tab tab-item ${indexTab===3 ? 'active' : ''} ${(userlocal==='Admin' && useractive==='true') ? 'active2' : ''} `}  onClick={()=>{toggleTab(3)}}>
+                <i className="bi bi-person-bounding-box"></i>
+                  <p>Admin</p>
                   </div>
                   </Link>
                   

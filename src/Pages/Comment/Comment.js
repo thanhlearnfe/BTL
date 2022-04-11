@@ -58,7 +58,7 @@ function Comment(props) {
                             {localComment.commentContent}
                         </p>
                     </div>
-                    <button className="deleteComment" onClick={() => handleDelete(index)}><i className="bi bi-backspace-fill"></i></button>
+                    {props.userlocal === 'Admin' && <button className="deleteComment" onClick={() => handleDelete(index)}><i className="bi bi-backspace-fill"></i></button>}
                 </div>
                 <div className="comment-like">
                     <p>Thích</p>
