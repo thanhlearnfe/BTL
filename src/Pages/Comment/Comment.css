@@ -124,3 +124,7 @@ i.bi.bi-person-circle.comment_avt-child {
         font-family: 'Nunito';
         font-weight: 500;
 }
+.comment__heading{
+    width: 80%;
+    margin-bottom: 10px;
+}
