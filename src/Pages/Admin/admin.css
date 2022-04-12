@@ -43,3 +43,23 @@ a {
 .admin h1{
   text-align: center;
 }
+.policy i.bi.bi-pencil-square{
+  color: #2cb616;
+  cursor: pointer;
+}
+.policy i.bi.bi-trash3-fill {
+  color: red;
+  cursor: pointer;
+}
+.admin button{
+  font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid;
+    font-family: 'bootstrap-icons';
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.admin input{
+  font-family: 'Nunito';
+}

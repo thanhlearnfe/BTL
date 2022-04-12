@@ -34,6 +34,10 @@ function Comment(props) {
     localStorage.setItem('comments',JSON.stringify(comments))  
     return(
         <div className="comment">
+            <div className="comment__heading">
+
+            <h2>Website đang trong quá trình phát triển ,để phát triển tốt hơn mong quý khách cho những đóng góp ý kiến</h2>
+            </div>
             <i className="bi bi-person-circle comment_avt"></i>
             <div className="comment-container">
                 <input 
@@ -58,7 +62,7 @@ function Comment(props) {
                             {localComment.commentContent}
                         </p>
                     </div>
-                    <button className="deleteComment" onClick={() => handleDelete(index)}><i className="bi bi-backspace-fill"></i></button>
+                    {props.userlocal === 'Admin' && <button className="deleteComment" onClick={() => handleDelete(index)}><i className="bi bi-backspace-fill"></i></button>}
                 </div>
                 <div className="comment-like">
                     <p>Thích</p>
