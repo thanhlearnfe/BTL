@@ -118,3 +118,9 @@ i.bi.bi-person-circle.comment_avt-child {
     color: blue;
     cursor: pointer;
 }
+.comment__heading h2{
+
+    color: #000;
+        font-family: 'Nunito';
+        font-weight: 500;
+}
