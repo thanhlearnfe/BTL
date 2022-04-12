@@ -43,10 +43,7 @@ const Login = (e)=>{
       window.location.reload();
       break;
     }
-    else{
-      alert("Tài khoản hoặc mật khẩu không chính xác !");
-      break;
-    }
+    
     
   }
   e.preventDefault()
